@@ -6,7 +6,7 @@
 #    By: malves-b <malves-b@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/23 19:52:51 by malves-b          #+#    #+#              #
-#    Updated: 2025/01/28 16:18:48 by malves-b         ###   ########.fr        #
+#    Updated: 2025/02/06 13:20:57 by malves-b         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,11 +24,11 @@
 
 TARGET = cpp00
 
-FILES = $(wildcard srcs/*.c)
+FILES = $(wildcard srcs/*.cpp)
 
-OBJS = $(patsubst srcs/%.c, objs/%.o, $(FILES))
+OBJS = $(patsubst srcs/%.cpp, objs/%.o, $(FILES))
 
-CC = cc -g
+CC = c++
 CFLAGS = -Wall -Wextra -Werror -std=c++98
 RM = rm -f
 
@@ -40,7 +40,7 @@ create_objs:
 $(TARGET): $(OBJS)
 	$(CC) $(CFLAGS) -o $(TARGET) $(OBJS)
 
-objs/%.o: srcs/%.c
+objs/%.o: srcs/%.cpp
 	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
